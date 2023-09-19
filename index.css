@@ -1,0 +1,85 @@
+/* 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 바디 */
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap:60px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#F0F4FF 0%, #A5B6EE 100%);
+    background-repeat: no-repeat;
+    background-size: fill;
+}
+/* 헤더 */
+
+header{
+    margin-top: 72px;
+}
+
+/* 메인 */
+main{
+    background: linear-gradient(to bottom,#5572BB 0%, #374B7C 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.mainheader{
+    padding: 48px 120px 23px;
+    border-bottom: 1px solid #3D538A;
+    box-shadow: 0px 1px 0.1px #5B75B4;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+    margin-top: 32px;
+    margin-left:58px;
+    margin-right:58px;
+}
+/* 점 */
+.dot{
+    transform: translateY(50%);
+}
+/* 시,분,초 */
+article p{
+    text-align: center;
+    font-size: 12px;
+    color: #A5B6EE;
+}
+
+article div{
+    margin-top: 4px;
+    position:relative;
+}
+
+div .count{
+    position: absolute;
+    font-size: 40px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* 버튼 */
+.btn{
+    display: flex;
+    gap: 12px;
+    margin: 40px auto;
+}
+
+/* footer */
+footer p{
+    color: #8596BF;
+}

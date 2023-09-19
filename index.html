@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <img src="./images/weniv-logo.png" alt="">
+    </header>
+    <main>
+        <img src="./images/Timer.png" alt="" class="mainheader">
+        <section class="timer">
+            <article>
+                <p>HRS</p>
+                <div>
+                    <img src="./images/box.png" alt="">
+                    <p class="count hrs">00</p>
+                </div>
+            </article>
+            <img src="./images/dot.png" alt="" class="dot">
+            <article>
+                <p>MIN</p>
+                <div>
+                    <img src="./images/box.png" alt="">
+                    <p class="count min">00</p>
+                </div>
+            </article>
+            <img src="./images/dot.png" alt="" class="dot">
+            <article>
+                <p>SEC</p>
+                <div>
+                    <img src="./images/box.png" alt="">
+                    <p class="count sec">00</p>
+                </div>
+            </article>
+        </section>
+        <div class="btn">
+            <img src="./images/start-disabled.png" alt="">
+            <img src="./images/reset-disabled.png" alt="">
+        </div>
+    </main>
+    <footer>
+        <p>ⓒ WENIV CORP.</p>
+    </footer>
+
+    <script>
+        let hrs = document.querySelector(".hrs");
+        let min = document.querySelector(".min");
+        let sec = document.querySelector(".sec");
+        let [hrs_count, min_count, sec_count] = [0,0,0];
+
+        hrs.addEventListener("click", () => {
+            console.log(hrs.textContent)
+        })
+        min.addEventListener("click", () => {
+            
+        })
+        sec.addEventListener("click", () => {
+            sec_count++;
+            if(sec_count < 6)sec.innerHTML = (10 * sec_count).toString()
+            else [sec_count, sec.innerHTML] = [0, "00"]
+        })
+    </script>
+</body>
+
+</html>
