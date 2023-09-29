@@ -50,22 +50,60 @@
     </footer>
 
     <script>
-        let hrs = document.querySelector(".hrs");
-        let min = document.querySelector(".min");
-        let sec = document.querySelector(".sec");
-        let [hrs_count, min_count, sec_count] = [0,0,0];
+        let t = document.querySelectorAll("article div p")
+        let btn = document.querySelectorAll(".btn *");
+        let paused = false;
+        let interval;
 
-        hrs.addEventListener("click", () => {
-            console.log(hrs.textContent)
+        t.forEach((_, i) => {
+            t[i].addEventListener("click", () => {
+                const val = prompt(`${i === 0 ? "시" : i === 1 ? "분" : "초"}를 입력해주세요.`)
+                if (parseInt(val) > 0 && parseInt(val) < 60) {
+                    t[i].innerHTML = val.padStart(2, '0')
+                }
+                if (val >= 0) {
+                    btn[0].src = "./images/start-default.png"
+                }
+            })
         })
-        min.addEventListener("click", () => {
-            
+
+        btn[0].addEventListener("click", () => {
+            clearInterval(interval)
+            let total = parseInt(t[0].innerHTML) * 3600 + parseInt(t[1].innerHTML) * 60 + parseInt(t[2].innerHTML);
+            if (total > 0) {
+                btn[1].src = "./images/pause.png"
+                paused = false;
+                interval = setInterval(() => {
+                    if (!paused) {
+                        total -= 1
+                        t[0].innerHTML = Math.floor(total / 3600).toString().padStart(2, '0');
+                        t[1].innerHTML = Math.floor(total % 3600 / 60).toString().padStart(2, '0');
+                        t[2].innerHTML = Math.floor((total % 3600) % 60).toString().padStart(2, '0');
+                    }
+                    if (total <= 0) {
+                        clearInterval(interval)
+                        btn[0].src = "./images/start-disabled.png"
+                        btn[1].src = "./images/reset-disabled.png"
+                        window.alert("알람 울림 띠리리링")
+                    }
+                }, 1000)
+            }
         })
-        sec.addEventListener("click", () => {
-            sec_count++;
-            if(sec_count < 6)sec.innerHTML = (10 * sec_count).toString()
-            else [sec_count, sec.innerHTML] = [0, "00"]
+
+        btn[1].addEventListener("click", (e) => {
+            clearInterval(interval)
+            paused = true;
+            if (e.target.src.includes("reset")) {
+                t.forEach((_, i) => {
+                    t[i].innerHTML = "00"
+                })
+                btn[0].src = "./images/start-disabled.png"
+                btn[1].src = "./images/reset-disabled.png"
+            } else {
+                btn[1].src = "./images/reset-default.png"
+            }
         })
+
     </script>
 </body>
 
