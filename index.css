@@ -5,15 +5,14 @@
 }
 /* 바디 */
 body{
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     gap:60px;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right,#F0F4FF 0%, #A5B6EE 100%);
-    background-repeat: no-repeat;
     background-size: fill;
 }
 /* 헤더 */
